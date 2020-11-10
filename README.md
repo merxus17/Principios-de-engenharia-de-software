@@ -34,7 +34,7 @@ Ele é constituído de n partes, /*A preencher*/.
  *
 
 ## Inicialização do software
- /*A preencher*/
+ Entre no site: https://merxus17.github.io/Principios-de-engenharia-de-software/
 
 ## Finalizando o software 
  /*A preencher*/
