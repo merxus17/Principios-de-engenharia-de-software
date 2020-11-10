@@ -16,10 +16,11 @@ O projeto é um site para realizar contagem de palavras em dados arquivos.
 Ele é constituído de n partes, /*A preencher*/.
 
 ## Participantes
-* Gabriel Aquino
-* Hugo Cunha
-* Rodrigo Pereira
-* Yan Gurevitz
+* Gabriel A. S. Aquino
+* Hugo F. A. Cunha
+* Rodrigo M. Pereira 
+* Yan M. B. G. Cunha 
+
 
 ## Inicializacao do software
  /*A preencher*/
