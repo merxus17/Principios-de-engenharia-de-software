@@ -21,6 +21,17 @@ Ele é constituído de n partes, /*A preencher*/.
 * Rodrigo M. Pereira 
 * Yan M. B. G. Cunha 
 
+## Definições sobre o projeto:
+### Linguagem de definição utilizadas:
+ * LAL
+### Linguagem de programação utilizadas:
+ * Javascript
+### Ferramentas utilizadas:
+ * Github Pages
+ * Bootstrap
+ * JQuery
+ *
+ *
 
 ## Inicialização do software
  /*A preencher*/
