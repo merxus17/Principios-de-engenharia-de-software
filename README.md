@@ -38,9 +38,9 @@ Ele é constituído de n partes, /*A preencher*/.
  
  2 - Passo 2
   
- 2 - Passo 3
+ 3 - Passo 3
   
- 2 - Passo 4
+ 4 - Passo 4
 
 ## Finalizando o software 
  /*A preencher*/
