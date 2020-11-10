@@ -29,7 +29,7 @@ Ele é constituído de n partes, /*A preencher*/.
 ### Ferramentas utilizadas:
  * Github Pages
  * Bootstrap
- * JQuery
+ * jQuery
  *
  *
 
