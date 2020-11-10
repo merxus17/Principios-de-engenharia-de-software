@@ -22,7 +22,7 @@ Ele é constituído de n partes, /*A preencher*/.
 * Yan M. B. G. Cunha 
 
 
-## Inicializacao do software
+## Inicialização do software
  /*A preencher*/
 
 ## Finalizando o software 
