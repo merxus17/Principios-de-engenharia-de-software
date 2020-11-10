@@ -30,9 +30,8 @@ Ele é constituído de n partes, /*A preencher*/.
  * Github Pages
  * Bootstrap
  * jQuery
- *
- *
 
+<!--
 ## Inicialização do software
  1 - Entre no site: https://merxus17.github.io/Principios-de-engenharia-de-software/
  
@@ -44,3 +43,4 @@ Ele é constituído de n partes, /*A preencher*/.
 
 ## Finalizando o software 
  /*A preencher*/
+-->
