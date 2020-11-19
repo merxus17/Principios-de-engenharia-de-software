@@ -1,11 +1,41 @@
 <!DOCTYPE html>
 <html lang="en">
+<style>
+    div{
+        align-content: center;
+        text-align: center;
+    }
+
+    tr, td{
+        align-content: center;
+        text-align: center;
+        vertical-align: middle;
+        margin:50px;
+    }
+</style>
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
 </head>
 <body>
-    HELLOOOOOO WORLD
-</body>
+    <div style="font-size: 75px; margin:50px;">
+        Principios de engenharia<br>
+        <span style="font-size: 65px; margin:50px;">Frequencia de termos</span>
+    </div>
+    <div>
+    <tr>
+        <td>Select a File to Load:</td>
+        <td><input type="file" id="fileToLoad"></td>
+        <td><button onclick="loadFileAsText()">Load Selected File</button><td>
+    </tr>
+    </div>
+
+    <div><button onclick="parseFile()" style="margin:50px;color:blue;text-align:center;">Parse File!</button></div>
+   
+    <div id="inputTextToSave">
+
+    </div>
+</body>+
+<script src="/termFrequency.js"></script> 
 </html>
