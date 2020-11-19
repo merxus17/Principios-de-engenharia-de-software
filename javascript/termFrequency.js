@@ -1,25 +1,3 @@
-
-
-// function  removeStopWord(wordList){
-//     // assert(type(wordList) is list), "I need a list! I quit!"
-
-//     // with open('./stopWord.txt') as f:
-//     //     stopWord = f.read().split(',')
-    
-//     // stopWord.extend(list(string.ascii_lowercase))
-//     // return [w for w in wordList if not w in stopWord]
-// }
-
-function assert(condition, message) {
-    if (!condition) {
-        message = message || "Assertion failed";
-        if (typeof Error !== "undefined") {
-            throw new Error(message);
-        }
-        throw message; // Fallback
-    }
-}
-
 function extractWords(file){
     var words = file.split(/\s+/)
     if(words.length < 25){
