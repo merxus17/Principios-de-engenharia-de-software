@@ -121,7 +121,6 @@ function parseFile()
     output = frequencies(extractWords(text))
     var sortedWords = sort(output)
     var element = document.getElementById("inputTextToSave");
-    alert("deveria limpar")
     element.innerHTML = "";
     var n = 0;
     for (word of sortedWords){
