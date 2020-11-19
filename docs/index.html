@@ -34,8 +34,15 @@
     <div><button onclick="parseFile()" style="margin:50px;color:blue;text-align:center;">Parse File!</button></div>
    
     <div id="inputTextToSave">
-
     </div>
-</body>+
+</body>
+<script>
+    const fileSelector = document.getElementById('fileToLoad');
+    fileSelector.addEventListener('change', (event) => {
+    const fileList = event.target.files;
+    console.log(fileList);
+  });
+</script>
+
 <script src="../javascript/termFrequency.js"></script> 
 </html>

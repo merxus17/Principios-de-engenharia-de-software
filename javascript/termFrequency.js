@@ -74,6 +74,7 @@ function sort(wordFrequencies)
 }
 
 function loadFileAsText(){
+
     var fileToLoad = document.getElementById("fileToLoad").files[0];
     
     var fileReader = new FileReader();
@@ -85,6 +86,12 @@ function loadFileAsText(){
   
     fileReader.readAsText(fileToLoad, "UTF-8");
 }
+
+// function loadFileAsText()
+// {
+//     alert("puta merda")
+    
+// }
 
 function parseFile()
 {   
