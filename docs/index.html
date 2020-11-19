@@ -121,7 +121,8 @@ function parseFile()
     output = frequencies(extractWords(text))
     var sortedWords = sort(output)
     var element = document.getElementById("inputTextToSave");
-    var n = 0
+    element.innerHTML = "";
+    var n = 0;
     for (word of sortedWords){
         if(n < 25)
         {
