@@ -87,12 +87,6 @@ function loadFileAsText(){
     fileReader.readAsText(fileToLoad, "UTF-8");
 }
 
-// function loadFileAsText()
-// {
-//     alert("puta merda")
-    
-// }
-
 function parseFile()
 {   
     //window.alert("testando")
