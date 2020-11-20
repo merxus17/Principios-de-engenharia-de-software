@@ -27,7 +27,7 @@ Ele é constituído de n partes, /*A preencher*/.
 ### Linguagem de programação utilizadas:
  * Javascript
 ### Linguagem de arquitetura
- * UML
+ * UML - Diagrama de classes
 ### Ferramentas utilizadas:
  * Github Pages
  * Bootstrap
