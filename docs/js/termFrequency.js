@@ -159,8 +159,9 @@ $().ready(function(){
 
 
     $("#parseFile").on("click",function(){
+        text =  $("#fileTextArea").val();
         if(textLoaded && stopWordLoaded){                   
-            if(textLoaded.length > 25){
+            if(text.length > 25){
                 $("#output").show();
             }           
             parseFile();  
