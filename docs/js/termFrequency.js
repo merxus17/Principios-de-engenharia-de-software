@@ -160,7 +160,9 @@ $().ready(function(){
 
     $("#parseFile").on("click",function(){
         if(textLoaded && stopWordLoaded){                   
-            $("#output").show();
+            if(textLoaded.length > 25){
+                $("#output").show();
+            }           
             parseFile();  
         }
         else{
