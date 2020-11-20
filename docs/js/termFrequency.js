@@ -1,3 +1,6 @@
+stopWordLoaded = false;
+textLoaded = false;
+
 function extractWords(file){
     var words = file.split(/\s+/)
     if(words.length < 25){
@@ -58,8 +61,22 @@ function loadFileAsText(){
     var fileReader = new FileReader();
     fileReader.onload = function(fileLoadedEvent){
         var textFromFileLoaded = fileLoadedEvent.target.result;
+        $("#fileTextArea").val(textFromFileLoaded);
+        textLoaded = true;
+    }
+    
+    fileReader.readAsText(fileToLoad, "UTF-8");
+}
+
+function loadStopWordsAsText(){
+
+    var fileToLoad = document.getElementById("stopWordsToLoad").files[0];
+    var fileReader = new FileReader();
+    fileReader.onload = function(fileLoadedEvent){
+        var textFromFileLoaded = fileLoadedEvent.target.result;
         //document.getElementById("inputTextToSave").innerHTML = textFromFileLoaded;
-        document.getElementById("inputTextToSave").value = textFromFileLoaded;
+        $("#stopWordsTextArea").val(textFromFileLoaded);
+        stopWordLoaded = true
     }
   
     fileReader.readAsText(fileToLoad, "UTF-8");
@@ -68,8 +85,8 @@ function loadFileAsText(){
 function parseFile()
 {   
     //window.alert("testando")
-    var text = document.getElementById("inputTextToSave").value
-    console.log(typeof(text))
+    var text = $("#fileTextArea").val();
+    //console.log(typeof(text))
     if(typeof text != 'string')
     {
         window.alert("I need a string! I quit!");
@@ -83,16 +100,15 @@ function parseFile()
     //window.alert(text.length)
     output = frequencies(extractWords(text))
     var sortedWords = sort(output)
-    var element = document.getElementById("inputTextToSave");
-    var n = 0
+    var outputText = "";
+    var n = 0;
+
+    $("#outputTextArea").val("");
     for (word of sortedWords){
         if(n < 25)
         {
-            console.log(word.word)
-            var text = document.createTextNode("Palavras: " + word.word + "  => Ocorrencias: " + word.ocurrences);
-            var br = document.createElement("br");
-            element.appendChild(text);
-            element.appendChild(br);
+            //console.log(word.word)
+            outputText = outputText +  "Palavras: " + word.word + "  => Ocorrencias: " + word.ocurrences + "\n"         
             n++;
         }
         else{
@@ -100,6 +116,7 @@ function parseFile()
         }
 
     }
+    $("#outputTextArea").val(outputText);
     //document.getElementById("inputTextToSave").innerHTML = text;
 }
 
@@ -119,7 +136,6 @@ $().ready(function(){
     });
 
     $("#uploadTextFile").on("click", function() {
-        var fileToLoad = document.getElementById("fileToLoad").files[0]
         loadFileAsText();
     });
 
@@ -137,15 +153,19 @@ $().ready(function(){
 
     });
 
-    $("#uploadTextFile").on("click", function() {
-        var stopWordsToLoad = document.getElementById("stopWordsToLoad").files[0]
-        loadFileAsText();
+    $("#uploadStopWordsFile").on("click", function() {
+        loadStopWordsAsText();
     });
 
 
     $("#parseFile").on("click",function(){
-        $("#outputTextArea").show();
-        parseFile();  
+        if(textLoaded && stopWordLoaded){                   
+            $("#output").show();
+            parseFile();  
+        }
+        else{
+            alert("You must upload both the Text file and Stopwords.")
+        }
       
     });
 
