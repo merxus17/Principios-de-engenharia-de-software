@@ -104,8 +104,7 @@ function parseFile()
 }
 
 //Events
-/*
-$(document).ready(function(){
+$().ready(function(){
     //Upload text files
     $("#fileToLoad").on("change", function() {
         var fileName = $(this).val().split("\\").pop();
@@ -151,6 +150,3 @@ $(document).ready(function(){
     });
 
 })
-
-*/
-

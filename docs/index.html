@@ -116,53 +116,11 @@
 
 <!--Scripts-->
 <script src="js/termFrequency.js" type="text/javascript"></script>
+
+
+<!--EVENTS-->
 <script>
-    $(document).ready(function(){
-    //Upload text files
-    $("#fileToLoad").on("change", function() {
-        var fileName = $(this).val().split("\\").pop();
-        if(fileName.indexOf(".txt")>0){
-            $(this).siblings("#fileToLoadLabel").addClass("selected").html(fileName);
-            $("#uploadTextFile").attr("disabled", false);
-        }
-        else{
-            alert("File must be txt format");
-        }      
-
-    });
-
-    $("#uploadTextFile").on("click", function() {
-        var fileToLoad = document.getElementById("fileToLoad").files[0]
-        loadFileAsText();
-    });
-
-
-    //Upload stopwords file
-    $("#stopWordsToLoad").on("change", function() {
-        var stopWordsName = $(this).val().split("\\").pop();
-        if(stopWordsName.indexOf(".txt")>0){
-            $(this).siblings("#stopWordsLabel").addClass("selected").html(stopWordsName);
-            $("#uploadStopWordsFile").attr("disabled", false);
-        }
-        else{
-            alert("File must be txt format");
-        }      
-
-    });
-
-    $("#uploadTextFile").on("click", function() {
-        var stopWordsToLoad = document.getElementById("stopWordsToLoad").files[0]
-        loadFileAsText();
-    });
-
-
-    $("#parseFile").on("click",function(){
-        $("#outputTextArea").show();
-        parseFile();  
-      
-    });
-
-})
+    
 </script>
 
 </body>
