@@ -61,8 +61,7 @@ function loadFileAsText(){
     var fileReader = new FileReader();
     fileReader.onload = function(fileLoadedEvent){
         var textFromFileLoaded = fileLoadedEvent.target.result;
-        console.log(textFromFileLoaded)
-        //$("#fileTextArea").val(textFromFileLoaded);
+        $("#fileTextArea").val(textFromFileLoaded);
         textLoaded = true;
     }
     
@@ -76,8 +75,7 @@ function loadStopWordsAsText(){
     fileReader.onload = function(fileLoadedEvent){
         var textFromFileLoaded = fileLoadedEvent.target.result;
         //document.getElementById("inputTextToSave").innerHTML = textFromFileLoaded;
-        console.log(textFromFileLoaded)
-        //$("#stopWordsTextArea").val(textFromFileLoaded);
+        $("#stopWordsTextArea").val(textFromFileLoaded);
         stopWordLoaded = true
     }
   
