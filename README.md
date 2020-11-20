@@ -5,7 +5,7 @@ Tarefa | Status | Progresso | Início | Fim
 ------ | ------ | --------- | ------ | ----
 Controle 1 | :o: | 100% | 04/11/20 | 05/11/20
 Controle 2 | :o: | 100% | 06/11/20 | 12/11/20
-Controle 3 | :x: | 50% | 13/11/20 | 19/11/20
+Controle 3 | :o: | 100% | 13/11/20 | 19/11/20
 Controle 4 | :x: | 25% | 20/11/20 | 26/11/20
 
 Entrega final: 26/11/20
@@ -26,6 +26,8 @@ Ele é constituído de n partes, /*A preencher*/.
  * LAL
 ### Linguagem de programação utilizadas:
  * Javascript
+### Linguagem de arquitetura
+ * UML - Diagrama de classes
 ### Ferramentas utilizadas:
  * Github Pages
  * Bootstrap
