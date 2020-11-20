@@ -104,6 +104,7 @@ function parseFile()
 }
 
 //Events
+/*
 $(document).ready(function(){
     //Upload text files
     $("#fileToLoad").on("change", function() {
@@ -151,5 +152,5 @@ $(document).ready(function(){
 
 })
 
-
+*/
 
