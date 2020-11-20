@@ -159,12 +159,15 @@ $().ready(function(){
 
 
     $("#parseFile").on("click",function(){
-        text =  $("#fileTextArea").val();
+        text =  $("#fileTextArea").val().split(/\s+/);
         if(textLoaded && stopWordLoaded){                   
             if(text.length > 25){
                 $("#output").show();
-            }           
-            parseFile();  
+                parseFile(); 
+            }       
+            else{
+                alert("OMG! Less than 25 words! I QUIT!")
+            }     
         }
         else{
             alert("You must upload both the Text file and Stopwords.")
