@@ -1,6 +1,13 @@
 stopWordLoaded = false;
 textLoaded = false;
 
+function removeStopWords(file){
+    var text = $("#stopWordsTextArea").val()
+    console.log(text)
+
+}
+
+
 function extractWords(file){
     var words = file.split(/\s+/)
     if(words.length < 25){
@@ -99,6 +106,7 @@ function parseFile()
     //console.log(text.length)
     //window.alert(text.length)
     output = frequencies(extractWords(text))
+    removeStopWords(output);
     var sortedWords = sort(output)
     var outputText = "";
     var n = 0;
