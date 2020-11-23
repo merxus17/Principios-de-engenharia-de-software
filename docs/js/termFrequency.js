@@ -1,19 +1,19 @@
 stopWordLoaded = false;
 textLoaded = false;
 
-function removeStopWords(file){
-    console.log("pinto")
-    alert("opa")
-    var text = $("#stopWordsTextArea").val()
-    console.log("pinto")
-    console.log(text)
-
+function removeStopWords(wordMap){
+    var text = $("#stopWordsTextArea").val();
+    var stopWords =  extractWords(text, false);
+    for(word of stopWords){
+        wordMap.delete(word);
+    }   
+    return wordMap
 }
 
 
-function extractWords(file){
+function extractWords(file, stopWord){
     var words = file.split(/\s+/)
-    if(words.length < 25){
+    if(words.length < 25 && stopWord){
         window.alert("OMG! Less than 25 words! I QUIT!");
         throw new Error("Not enough words");
     }
@@ -28,7 +28,6 @@ function extractWords(file){
         words[index] = word.toLowerCase()
 
     }
-    console.log(words)
     return words;
 
 }
@@ -45,7 +44,6 @@ function frequencies(wordList){
             wordFrequencies.set(word, nOcorrencias+1);
         }
     }
-    //console.log(wordFrequencies);
     return wordFrequencies;
 
 
@@ -53,14 +51,8 @@ function frequencies(wordList){
 
 function sort(wordFrequencies)
 {
-    //     assert(type(wordFrequencies) is dict), "I need a dictionary! I quit!"
-    //     assert(wordFrequencies != {}), "I need a non-empty dictionary! I quit!"
-    
-    //     return sorted(wordFrequencies.items(), key=operator.itemgetter(1), reverse=True)
-    console.log(typeof(wordFrequencies))
     let array = Array.from(wordFrequencies).map(([word, ocurrences]) => ({word, ocurrences}))
     var sorted = array.sort(function(a,b) { return b.ocurrences - a.ocurrences})
-    console.log(sorted)
     return sorted
 }
 
@@ -93,10 +85,8 @@ function loadStopWordsAsText(){
 }
 
 function parseFile()
-{   
-    //window.alert("testando")
+{
     var text = $("#fileTextArea").val();
-    //console.log(typeof(text))
     if(typeof text != 'string')
     {
         window.alert("I need a string! I quit!");
@@ -106,10 +96,8 @@ function parseFile()
         window.alert("I need a non-empty string! I quit!");
         throw new Error("String Empty");
     }
-    //console.log(text.length)
-    //window.alert(text.length)
-    output = frequencies(extractWords(text))
-    removeStopWords(output);
+    output = frequencies(extractWords(text, true))
+    output = removeStopWords(output);
     var sortedWords = sort(output)
     var outputText = "";
     var n = 0;
@@ -118,7 +106,6 @@ function parseFile()
     for (word of sortedWords){
         if(n < 25)
         {
-            //console.log(word.word)
             outputText = outputText +  "Palavras: " + word.word + "  => Ocorrencias: " + word.ocurrences + "\n"         
             n++;
         }
@@ -128,7 +115,6 @@ function parseFile()
 
     }
     $("#outputTextArea").val(outputText);
-    //document.getElementById("inputTextToSave").innerHTML = text;
 }
 
 //Events
