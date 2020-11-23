@@ -132,9 +132,9 @@ function parseFile()
     //document.getElementById("inputTextToSave").innerHTML = text;
 }
 
-//Events
+// Events
 $().ready(function(){
-    //Upload text files
+    // Upload text files
     $("#fileToLoad").on("change", function() {
         var fileName = $(this).val().split("\\").pop();
         if(fileName.indexOf(".txt")>0){
@@ -147,6 +147,7 @@ $().ready(function(){
 
     });
 
+	// Clicando no botao de upload file para para que seja lido e preparado
     $("#uploadTextFile").on("click", function() {
         loadFileAsText();
     });
@@ -165,11 +166,12 @@ $().ready(function(){
 
     });
 
+	// Clicando no botao de upload stopwords para que seja lido e preparado
     $("#uploadStopWordsFile").on("click", function() {
         loadStopWordsAsText();
     });
 
-
+	// Clicando neste botao usa os arquivos carregados e executa o algoritmo
     $("#parseFile").on("click",function(){
         text =  $("#fileTextArea").val().split(/\s+/);
         if(textLoaded && stopWordLoaded){                   
