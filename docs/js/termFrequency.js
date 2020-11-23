@@ -10,7 +10,9 @@ function removeStopWords(wordMap){
     return wordMap
 }
 
-
+// funcao que recebe um arquivo e extrai as palavras delete
+// in: file = o arquivo de entrada contendo as palavras a serem contadas
+// out: words = a lista de palavras contidas nesse arquivo
 function extractWords(file, stopWord){
     var words = file.split(/\s+/)
     if(words.length < 25 && stopWord){
@@ -32,6 +34,9 @@ function extractWords(file, stopWord){
 
 }
 
+// funcao que recebe lista de palavras da entrada e conta a frequencia delas
+// in: wordList  = lista de palavras da entrada
+// out: wordFrequencies = mapa de frequencia de cada palavra
 function frequencies(wordList){
     var wordFrequencies = new Map();
     for (word of wordList){
@@ -49,6 +54,9 @@ function frequencies(wordList){
 
 }
 
+// funcao que recebe o mapa de frequencias por palavra e ordena as frequencias
+// in: wordFrequencies = mapa de frequencia de cada palavra
+// out: sorted = array ordenado de frequencias de palavras
 function sort(wordFrequencies)
 {
     let array = Array.from(wordFrequencies).map(([word, ocurrences]) => ({word, ocurrences}))
@@ -56,6 +64,7 @@ function sort(wordFrequencies)
     return sorted
 }
 
+// funcao que carrega o arquivo do documento como um arquivo de texto
 function loadFileAsText(){
 
     var fileToLoad = document.getElementById("fileToLoad").files[0];
@@ -70,6 +79,7 @@ function loadFileAsText(){
     fileReader.readAsText(fileToLoad, "UTF-8");
 }
 
+// funcao que carrega o arquivo com a lista de palavras ignoradas como um aruqivo de texto
 function loadStopWordsAsText(){
 
     var fileToLoad = document.getElementById("stopWordsToLoad").files[0];
@@ -84,6 +94,7 @@ function loadStopWordsAsText(){
     fileReader.readAsText(fileToLoad, "UTF-8");
 }
 
+// funcao que interpreta a entrada e gera a saida para o usuario
 function parseFile()
 {
     var text = $("#fileTextArea").val();
