@@ -19,6 +19,8 @@ function extractStopWords(file, separator){
         word = word.replace("!", "")
         word = word.replace("?", "")
         word = word.replace(";", "")
+        word = word.replace('"', "")
+        word = word.replace("'", "")
         word = word.trim()
         words[index] = word.toLowerCase()
     }
@@ -43,6 +45,8 @@ function extractWords(file, stopWord){
         word = word.replace("!", "")
         word = word.replace("?", "")
         word = word.replace(";", "")
+        word = word.replace('"', "")
+        word = word.replace("'", "")
         word = word.trim()
         words[index] = word.toLowerCase()
 
