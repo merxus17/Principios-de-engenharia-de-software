@@ -2,6 +2,8 @@ stopWordLoaded = false;
 textLoaded = false;
 
 function removeStopWords(file){
+    console.log("pinto")
+    alert("opa")
     var text = $("#stopWordsTextArea").val()
     console.log("pinto")
     console.log(text)
