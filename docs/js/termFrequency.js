@@ -3,12 +3,29 @@ textLoaded = false;
 
 function removeStopWords(wordMap){
     var text = $("#stopWordsTextArea").val();
-    var stopWords =  extractWords(text, false);
+    var stopWords =  extractStopWords(text, ',');
     for(word of stopWords){
         wordMap.delete(word);
     }   
     return wordMap
 }
+
+function extractStopWords(file, separator){
+    var words = file.split(separator)
+    
+    for ([index,word] of words.entries()){
+        word = word.replace(",", "")
+        word = word.replace(".", "")
+        word = word.replace("!", "")
+        word = word.replace("?", "")
+        word = word.replace(";", "")
+        word = word.trim()
+        words[index] = word.toLowerCase()
+    }
+    return words;
+
+}
+
 
 // funcao que recebe um arquivo e extrai as palavras delete
 // in: file = o arquivo de entrada contendo as palavras a serem contadas
@@ -107,7 +124,7 @@ function parseFile()
         window.alert("I need a non-empty string! I quit!");
         throw new Error("String Empty");
     }
-    output = frequencies(extractWords(text, true))
+    output = frequencies(extractWords(text))
     output = removeStopWords(output);
     var sortedWords = sort(output)
     var outputText = "";
