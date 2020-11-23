@@ -1,16 +1,10 @@
+// flags para indicar se as entradas ja foram carregadas
 stopWordLoaded = false;
 textLoaded = false;
 
-function removeStopWords(file){
-    console.log("pinto")
-    alert("opa")
-    var text = $("#stopWordsTextArea").val()
-    console.log("pinto")
-    console.log(text)
-
-}
-
-
+// funcao que recebe um arquivo e extrai as palavras delete
+// in: file = o arquivo de entrada contendo as palavras a serem contadas
+// out: words = a lista de palavras contidas nesse arquivo
 function extractWords(file){
     var words = file.split(/\s+/)
     if(words.length < 25){
@@ -33,6 +27,9 @@ function extractWords(file){
 
 }
 
+// funcao que recebe lista de palavras da entrada e conta a frequencia delas
+// in: wordList  = lista de palavras da entrada
+// out: wordFrequencies = mapa de frequencia de cada palavra
 function frequencies(wordList){
     var wordFrequencies = new Map();
     for (word of wordList){
@@ -48,9 +45,11 @@ function frequencies(wordList){
     //console.log(wordFrequencies);
     return wordFrequencies;
 
-
 }
 
+// funcao que recebe o mapa de frequencias por palavra e ordena as frequencias
+// in: wordFrequencies = mapa de frequencia de cada palavra
+// out: sorted = array ordenado de frequencias de palavras
 function sort(wordFrequencies)
 {
     //     assert(type(wordFrequencies) is dict), "I need a dictionary! I quit!"
@@ -64,6 +63,7 @@ function sort(wordFrequencies)
     return sorted
 }
 
+// funcao que carrega o arquivo do documento como um arquivo de texto
 function loadFileAsText(){
 
     var fileToLoad = document.getElementById("fileToLoad").files[0];
@@ -78,6 +78,7 @@ function loadFileAsText(){
     fileReader.readAsText(fileToLoad, "UTF-8");
 }
 
+// funcao que carrega o arquivo com a lista de palavras ignoradas como um aruqivo de texto
 function loadStopWordsAsText(){
 
     var fileToLoad = document.getElementById("stopWordsToLoad").files[0];
@@ -92,6 +93,7 @@ function loadStopWordsAsText(){
     fileReader.readAsText(fileToLoad, "UTF-8");
 }
 
+// funcao que interpreta a entrada e gera a saida para o usuario
 function parseFile()
 {   
     //window.alert("testando")
@@ -109,7 +111,6 @@ function parseFile()
     //console.log(text.length)
     //window.alert(text.length)
     output = frequencies(extractWords(text))
-    removeStopWords(output);
     var sortedWords = sort(output)
     var outputText = "";
     var n = 0;
