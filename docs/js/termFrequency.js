@@ -11,29 +11,9 @@ function removeStopWords(wordMap){
 }
 
 function extractStopWords(file, separator){
+    file = file.toLowerCase()
     var words = file.split(separator)
-    
-    for ([index,word] of words.entries()){
-        word = word.replace(",", "")
-        word = word.replace(".", "")
-        word = word.replace("!", "")
-        word = word.replace("?", "")
-        word = word.replace(":", "")
-        word = word.replace("´", "")
-        word = word.replace("`", "")
-        word = word.replace("*", "")
-        word = word.replace("&", "")        
-        word = word.replace("%", "")
-        word = word.replace("$", "")
-        word = word.replace("_", "")
-        word = word.replace("(", "")
-        word = word.replace(")", "")
-        word = word.replace(";", "")
-        word = word.replace('"', "")
-        word = word.replace("'", "")
-        word = word.trim()
-        words[index] = word.toLowerCase()
-    }
+
     return words;
 
 }
@@ -43,34 +23,35 @@ function extractStopWords(file, separator){
 // in: file = o arquivo de entrada contendo as palavras a serem contadas
 // out: words = a lista de palavras contidas nesse arquivo
 function extractWords(file, stopWord){
-    var words = file.split(/\s+/)
+    file = file.toLowerCase()
+    file = file.replace(/\,/g, " ")
+    file = file.replace(/\./g, " ")
+    file = file.replace(/\!/g, " ")
+    file = file.replace(/\?/g, " ")
+    file = file.replace(/\:/g, " ")
+    file = file.replace(/\´/g, " ")
+    file = file.replace(/\`/g, " ")
+    file = file.replace(/\*/g, " ")
+    file = file.replace(/\&/g, " ")        
+    file = file.replace(/\%/g, " ")
+    file = file.replace(/\$/g, " ")
+    file = file.replace(/\_/g, " ")
+    file = file.replace(/\(/g, " ")
+    file = file.replace(/\)/g, " ")
+    file = file.replace(/\;/g, " ")
+    file = file.replace(/\"/g, " ")
+    file = file.replace(/\'s/g, " ")
+    file = file.replace(/\-/g, " ")
+    file = file.replace(/\//g, " ")
+    file = file.replace(/\\/g, " ")
+    file = file.replace(/\'/g, " ")
+
+    var words = file.split(/\s+/g)
     if(words.length < 25 && stopWord){
         window.alert("OMG! Less than 25 words! I QUIT!");
         throw new Error("Not enough words");
     }
 
-    for ([index,word] of words.entries()){
-        word = word.replace(",", "")
-        word = word.replace(".", "")
-        word = word.replace("!", "")
-        word = word.replace("?", "")
-        word = word.replace(":", "")
-        word = word.replace("´", "")
-        word = word.replace("`", "")
-        word = word.replace("*", "")
-        word = word.replace("&", "")        
-        word = word.replace("%", "")
-        word = word.replace("$", "")
-        word = word.replace("_", "")
-        word = word.replace("(", "")
-        word = word.replace(")", "")
-        word = word.replace(";", "")
-        word = word.replace('"', "")
-        word = word.replace("'", "")
-        word = word.trim()
-        words[index] = word.toLowerCase()
-
-    }
     return words;
 
 }
@@ -102,6 +83,7 @@ function sort(wordFrequencies)
 {
     let array = Array.from(wordFrequencies).map(([word, ocurrences]) => ({word, ocurrences}))
     var sorted = array.sort(function(a,b) { return b.ocurrences - a.ocurrences})
+    console.log(sorted)
     return sorted
 }
 
