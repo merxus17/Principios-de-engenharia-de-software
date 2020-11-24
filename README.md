@@ -39,6 +39,6 @@ Ele é constituído de n partes, /*A preencher*/.
  
  2 - Faça upload do arquivo de texto no campo da esquerda (formato .txt).
   
- 3 - Faça upload do arquivo de stopwords no campo da direita (formato .txt.
+ 3 - Faça upload do arquivo de stopwords no campo da direita (formato .txt).
   
  4 - Depois que seus arquivos aparecerem nos seus respectivos campos clicar no botão "Parse File!"
