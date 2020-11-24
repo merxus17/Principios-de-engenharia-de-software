@@ -33,16 +33,12 @@ Ele é constituído de n partes, /*A preencher*/.
  * Bootstrap
  * jQuery
 
-<!--
+
 ## Inicialização do software
  1 - Entre no site: https://merxus17.github.io/Principios-de-engenharia-de-software/
  
- 2 - Passo 2
+ 2 - Faça upload do arquivo de texto no campo da esquerda (formato .txt).
   
- 3 - Passo 3
+ 3 - Faça upload do arquivo de stopwords no campo da direita (formato .txt.
   
- 4 - Passo 4
-
-## Finalizando o software 
- /*A preencher*/
--->
+ 4 - Depois que seus arquivos aparecerem nos seus respectivos campos clicar no botão "Parse File!"
