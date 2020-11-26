@@ -89,7 +89,6 @@ function sort(wordFrequencies)
 {
     let array = Array.from(wordFrequencies).map(([word, ocurrences]) => ({word, ocurrences}))
     var sorted = array.sort(function(a,b) { return b.ocurrences - a.ocurrences})
-    console.log(sorted)
     return sorted
 }
 
