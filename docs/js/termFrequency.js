@@ -118,7 +118,7 @@ function loadStopWordsAsText(){
 }
 
 // funcao que interpreta a entrada e gera a saida para o usuario
-function parseFile()
+function countFileWords()
 {
     var text = $("#fileTextArea").val();
     if(typeof text != 'string')
@@ -194,7 +194,7 @@ $().ready(function(){
         if(textLoaded && stopWordLoaded){                   
             if(text.length > 25){
                 $("#output").show();
-                parseFile(); 
+                countFileWords(); 
             }       
             else{
                 alert("OMG! Less than 25 words! I QUIT!")
