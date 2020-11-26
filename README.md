@@ -45,3 +45,7 @@ Dado o upload dos arquivos, será mostrado um conjuntos de palavras em ordem de 
  3 - Faça upload do arquivo de stopwords no campo da direita (formato .txt).
   
  4 - Depois que seus arquivos aparecerem nos seus respectivos campos clicar no botão "Count File Words"
+
+## Teste de software
+ 
+Utilizar os casos testes presente na pasta "arquivos de teste", em cada caso está presente o test.txt(arquivo cuja frequência de termos será contada), as stopWords(palavras que nã serão contadas), o gabarito(resposta esperada). Na raiz da pasta está presente um readme detalhando o que cada teste, almeja testar.
