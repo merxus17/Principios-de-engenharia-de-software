@@ -18,11 +18,10 @@ function extractStopWords(file, separator){
 
 }
 
-
 // funcao que recebe um arquivo e extrai as palavras delete
 // in: file = o arquivo de entrada contendo as palavras a serem contadas
 // out: words = a lista de palavras contidas nesse arquivo
-function extractWords(file, stopWord){
+function extractWords(file){
     file = file.toLowerCase()
     file = file.replace(/\,/g, " ")
     file = file.replace(/\./g, " ")
@@ -47,7 +46,7 @@ function extractWords(file, stopWord){
     file = file.replace(/\'/g, " ")
 
     var words = file.split(/\s+/g)
-    if(words.length < 25 && stopWord){
+    if(words.length < 25){
         window.alert("OMG! Less than 25 words! I QUIT!");
         throw new Error("Not enough words");
     }
@@ -70,6 +69,10 @@ function frequencies(wordList){
         else{
             wordFrequencies.set(word, nOcorrencias+1);
         }
+    }
+    if(wordFrequencies.length < 25){
+        window.alert("Bro! Less than 25 unique words! C'MON!");
+        throw new Error("Not enough unique words");
     }
     return wordFrequencies;
 
@@ -132,6 +135,10 @@ function parseFile()
     }
     output = frequencies(extractWords(text))
     output = removeStopWords(output);
+    if(output.length < 25){
+        window.alert("You stop worded everything! You didn't left enough words for me to work with!");
+        throw new Error("Not enough words after removing stop words");
+    }
     var sortedWords = sort(output)
     var outputText = "";
     var n = 0;
