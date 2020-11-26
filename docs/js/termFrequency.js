@@ -207,10 +207,12 @@ $().ready(function(){
                 parseFile(); 
             }       
             else{
+                $("#output").hide();
                 alert("OMG! Less than 25 words! I QUIT!")
             }     
         }
         else{
+            $("#output").hide();
             alert("You must upload both the Text file and Stopwords.")
         }
       
