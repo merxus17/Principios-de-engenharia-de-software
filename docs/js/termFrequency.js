@@ -70,12 +70,12 @@ function frequencies(wordList){
             wordFrequencies.set(word, nOcorrencias+1);
         }
     }
-    console.log(wordFrequencies.length)
-    window.alert("pq jeova")
-    if(wordFrequencies.length < 25){
-        console.log("pq senhor")
+    if(wordFrequencies.size < 25){
+        $("#output").hide();
         window.alert("Bro! Less than 25 unique words! C'MON!");
+
         throw new Error("Not enough unique words");
+
     }
     return wordFrequencies;
 
@@ -138,7 +138,8 @@ function parseFile()
     }
     output = frequencies(extractWords(text))
     output = removeStopWords(output);
-    if(output.length < 25){
+    if(output.size < 25){
+        $("#output").hide();
         window.alert("You stop worded everything! You didn't left enough words for me to work with!");
         throw new Error("Not enough words after removing stop words");
     }
