@@ -1,6 +1,10 @@
 stopWordLoaded = false;
 textLoaded = false;
 
+// funcao que recebe mapa de palavras e remove as stopWords
+// in: wordMap = mapa de frequencia por palavra
+// out: wordMap = mapa de frequenciapor palavra sem as stopWords
+// pre: ha um arquivo na area de texto de stopWords
 function removeStopWords(wordMap){
     var text = $("#stopWordsTextArea").val();
     var stopWords =  extractStopWords(text, ',');
@@ -10,6 +14,10 @@ function removeStopWords(wordMap){
     return wordMap
 }
 
+// funao para obter as stopWords a partir do arquivo
+// in: file = arquivo de texto contendo as palavras a serem consideradas como stopWords
+// in: separator = caracter que separa as stopWords no arquivo
+// out: words = conjunto de stopWords
 function extractStopWords(file, separator){
     file = file.toLowerCase()
     var words = file.split(separator)
@@ -19,7 +27,7 @@ function extractStopWords(file, separator){
 }
 
 // funcao que recebe um arquivo e extrai as palavras delete
-// in: file = o arquivo de entrada contendo as palavras a serem contadas
+// in: file = o arquivo de entrada contendo pelo menos 25 palavras a serem contadas
 // out: words = a lista de palavras contidas nesse arquivo
 function extractWords(file){
     file = file.toLowerCase()
@@ -56,7 +64,7 @@ function extractWords(file){
 }
 
 // funcao que recebe lista de palavras da entrada e conta a frequencia delas
-// in: wordList  = lista de palavras da entrada
+// in: wordList  = lista de pelo menos 25 palavras diferentes da entrada
 // out: wordFrequencies = mapa de frequencia de cada palavra
 function frequencies(wordList){
     var wordFrequencies = new Map();
