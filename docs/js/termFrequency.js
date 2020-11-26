@@ -70,8 +70,9 @@ function frequencies(wordList){
             wordFrequencies.set(word, nOcorrencias+1);
         }
     }
-    console.log(wordFrequencies.size)
-    if(wordFrequencies.size < 25){
+    console.log(wordFrequencies.length)
+    if(wordFrequencies.length < 25){
+        console.log("pq senhor")
         window.alert("Bro! Less than 25 unique words! C'MON!");
         throw new Error("Not enough unique words");
     }
