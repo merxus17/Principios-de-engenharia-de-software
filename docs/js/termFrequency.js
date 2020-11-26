@@ -70,7 +70,7 @@ function frequencies(wordList){
             wordFrequencies.set(word, nOcorrencias+1);
         }
     }
-    if(wordFrequencies.length < 25){
+    if(wordFrequencies.size < 25){
         window.alert("Bro! Less than 25 unique words! C'MON!");
         throw new Error("Not enough unique words");
     }
