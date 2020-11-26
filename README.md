@@ -14,8 +14,9 @@ Entrega final: 26/11/20
 ## Introdução
 O projeto é um site para realizar contagem de palavras em dado arquivo. 
 É necessário o upload de dois arquivos:
-	- Um arquivo com as palavras a serem contadas
-	- Um arquivos com palavras para serem ignoradas, chamadas de stopWords.
+
+- Um arquivo com as palavras a serem contadas
+- Um arquivos com palavras para serem ignoradas, chamadas de stopWords.
 	
 Dado o upload dos arquivos, será mostrado um conjuntos de palavras em ordem de frequencia das 25 mais frequentes.
 
