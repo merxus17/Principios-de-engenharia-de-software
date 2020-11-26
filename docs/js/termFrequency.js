@@ -1,6 +1,10 @@
 stopWordLoaded = false;
 textLoaded = false;
 
+// funcao que recebe mapa de palavras e remove as stopWords
+// in: wordMap = mapa de frequencia por palavra
+// out: wordMap = mapa de frequenciapor palavra sem as stopWords
+// pre: ha um arquivo na area de texto de stopWords
 function removeStopWords(wordMap){
     var text = $("#stopWordsTextArea").val();
     var stopWords =  extractStopWords(text, ',');
@@ -10,6 +14,10 @@ function removeStopWords(wordMap){
     return wordMap
 }
 
+// funao para obter as stopWords a partir do arquivo
+// in: file = arquivo de texto contendo as palavras a serem consideradas como stopWords
+// in: separator = caracter que separa as stopWords no arquivo
+// out: words = conjunto de stopWords
 function extractStopWords(file, separator){
     file = file.toLowerCase()
     var words = file.split(separator)
@@ -18,11 +26,10 @@ function extractStopWords(file, separator){
 
 }
 
-
 // funcao que recebe um arquivo e extrai as palavras delete
-// in: file = o arquivo de entrada contendo as palavras a serem contadas
+// in: file = o arquivo de entrada contendo pelo menos 25 palavras a serem contadas
 // out: words = a lista de palavras contidas nesse arquivo
-function extractWords(file, stopWord){
+function extractWords(file){
     file = file.toLowerCase()
     file = file.replace(/\,/g, " ")
     file = file.replace(/\./g, " ")
@@ -47,7 +54,7 @@ function extractWords(file, stopWord){
     file = file.replace(/\'/g, " ")
 
     var words = file.split(/\s+/g)
-    if(words.length < 25 && stopWord){
+    if(words.length < 25){
         window.alert("OMG! Less than 25 words! I QUIT!");
         throw new Error("Not enough words");
     }
@@ -57,7 +64,7 @@ function extractWords(file, stopWord){
 }
 
 // funcao que recebe lista de palavras da entrada e conta a frequencia delas
-// in: wordList  = lista de palavras da entrada
+// in: wordList  = lista de pelo menos 25 palavras diferentes da entrada
 // out: wordFrequencies = mapa de frequencia de cada palavra
 function frequencies(wordList){
     var wordFrequencies = new Map();
@@ -71,6 +78,13 @@ function frequencies(wordList){
             wordFrequencies.set(word, nOcorrencias+1);
         }
     }
+    if(wordFrequencies.size < 25){
+        $("#output").hide();
+        window.alert("Bro! Less than 25 unique words! C'MON!");
+
+        throw new Error("Not enough unique words");
+
+    }
     return wordFrequencies;
 
 
@@ -83,7 +97,6 @@ function sort(wordFrequencies)
 {
     let array = Array.from(wordFrequencies).map(([word, ocurrences]) => ({word, ocurrences}))
     var sorted = array.sort(function(a,b) { return b.ocurrences - a.ocurrences})
-    console.log(sorted)
     return sorted
 }
 
@@ -132,6 +145,11 @@ function countFileWords()
     }
     output = frequencies(extractWords(text))
     output = removeStopWords(output);
+    if(output.size < 25){
+        $("#output").hide();
+        window.alert("You stop worded everything! You didn't left enough words for me to work with!");
+        throw new Error("Not enough words after removing stop words");
+    }
     var sortedWords = sort(output)
     var outputText = "";
     var n = 0;
@@ -197,10 +215,12 @@ $().ready(function(){
                 countFileWords(); 
             }       
             else{
+                $("#output").hide();
                 alert("OMG! Less than 25 words! I QUIT!")
             }     
         }
         else{
+            $("#output").hide();
             alert("You must upload both the Text file and Stopwords.")
         }
       
