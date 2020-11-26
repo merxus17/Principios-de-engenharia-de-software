@@ -71,7 +71,7 @@ function frequencies(wordList){
         }
     }
     console.log(wordFrequencies.length)
-    console.log("pq jeova")
+    window.alert("pq jeova")
     if(wordFrequencies.length < 25){
         console.log("pq senhor")
         window.alert("Bro! Less than 25 unique words! C'MON!");
